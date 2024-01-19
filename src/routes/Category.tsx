@@ -1,7 +1,7 @@
-import "../CSS/Detail.css";
+import "../CSS/Categoty.css";
 import { useParams } from "react-router-dom";
 
-function Detail() {
+function Category() {
   let { id } = useParams();
   console.log(id);
 
@@ -23,4 +23,4 @@ function Detail() {
   );
 }
 
-export default Detail;
+export default Category;

@@ -1,7 +1,8 @@
 .main-frame {
   position: relative;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
   height: 100vh;
   overflow: auto;
@@ -50,8 +51,10 @@
 }
 
 .left-menu {
+  z-index: 100;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
   position: fixed;
   width: 300px;
@@ -78,7 +81,7 @@
   background-color: #292a2d;
   border-radius: 10px;
   cursor: pointer;
-  transition: 0.7s all ease-in-out;
+  transition: 0.4s all ease-in-out;
 }
 
 .left-menu-icon-true {
@@ -94,8 +97,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  top: 50px;
+  margin-top: 100px;
+  margin-bottom: 30px;
 }
 
 .left-menu-profile-icon {
@@ -139,21 +142,55 @@
   position: fixed;
   bottom: 80px;
   right: 30px;
-  width: 300px;
-  height: 70%;
+  width: 350px;
+  height: 600px;
   background-color: #313233;
   border-radius: 15px;
-  transition: 0.5s all ease-in-out;
+  transition: 0.4s all ease-in-out;
 }
 
 .chat-true {
+  transform: rotateY(360deg);
   visibility: visible;
   opacity: 1;
   bottom: 80px;
 }
 
 .chat-false {
+  transform: rotateY(0);
   visibility: hidden;
   opacity: 0;
   bottom: 0px;
+}
+
+.left-menu-element-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 10px 10px;
+}
+
+.left-menu-element {
+  margin: 10px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.left-menu-element-title {
+  padding-bottom: 30px;
+  font-size: 16px;
+}
+
+.left-menu-element-detail {
+  padding-bottom: 20px;
+  font-size: 14px;
+  color: #97979f;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }

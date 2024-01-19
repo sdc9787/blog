@@ -1,15 +1,20 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import "./CSS/App.css";
 import Detail from "./routes/Detail";
 import Home from "./routes/home";
+import Category from "./routes/Category";
 import { useState } from "react";
 
 function App() {
   let [profileState, setprofileState] = useState<boolean>(false); //leftprofile sidebar 상태
-  let profileImg: string = "./public/profile.png"; //프로필 이미지 주소
+  let profileImg: string = "/public/profile.png"; //프로필 이미지 주소
   let [chatState, setchatState] = useState<boolean>(false);
+  let [category, setcategory] = useState<string[]>(["테스트 카테고리1", "테스트 카테고리2"]);
+  let [newPost, setNewPost] = useState<string[]>(["테스트 게시글1", "테스트 게시글2"]);
   const blogName: string = "sdc9787"; //블로그 이름
   const profileName: string = "신대철"; //profile 이름
+
+  let navigate = useNavigate(); //페이지 이동
 
   return (
     <>
@@ -24,7 +29,9 @@ function App() {
               src={profileImg}
             />
           </div>
-          <div className="nav-title">{blogName}</div>
+          <div onClick={() => navigate("/")} className="nav-title cursor-pointer">
+            {blogName}
+          </div>
           <div className="dark-mode">
             <i className="xi-moon xi-x"></i>
           </div>
@@ -42,6 +49,28 @@ function App() {
             <span className="left-menu-profile-blogName">{blogName}</span>
             <span className="left-menu-profile-profileName">{profileName}</span>
           </div>
+          <div className="left-menu-element-group">
+            <div className="left-menu-element">
+              <span className="left-menu-element-title">카테고리({category.length})</span>
+              {category.map((a, i) => {
+                return (
+                  <span onClick={() => navigate("/Category/" + i)} key={i} className="left-menu-element-detail cursor-pointer">
+                    {a}
+                  </span>
+                );
+              })}
+            </div>
+            <div className="left-menu-element">
+              <span className="left-menu-element-title">최신 게시글({newPost.length})</span>
+              {newPost.map((a, i) => {
+                return (
+                  <span onClick={() => navigate("/Detail/" + i)} key={i} className="left-menu-element-detail cursor-pointer">
+                    {a}
+                  </span>
+                );
+              })}
+            </div>
+          </div>
         </div>
         <div className="up">
           <i className="xi-angle-up-min xi-2x"></i>
@@ -54,9 +83,12 @@ function App() {
             className="xi-forum xi-x"></i>
         </div>
         <div className={"chat chat-" + chatState}></div>
+
         <Routes>
           <Route path="/" element={<Home></Home>}></Route>
-          <Route path="/:id" element={<Detail></Detail>}></Route>
+          <Route path="/Category/:id" element={<Category></Category>}></Route>
+          <Route path="/Detail/:id" element={<Detail></Detail>}></Route>
+          <Route path="*" element={<div>접근할 수 없는 페이지입니다.</div>}></Route>
         </Routes>
       </div>
     </>
