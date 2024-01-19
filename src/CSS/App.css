@@ -1,0 +1,159 @@
+.main-frame {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  overflow: auto;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #313233;
+  height: 55px;
+  opacity: 1;
+  padding: 0px 15px;
+}
+
+.profile {
+  width: 33%;
+  height: 30px;
+}
+
+.profile-icon {
+  width: 30px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.nav-title {
+  width: 33%;
+  display: flex;
+  justify-content: center;
+  font-weight: 700;
+  color: white;
+}
+
+.dark-mode {
+  width: 33%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.dark-mode i {
+  padding: 10px;
+  background-color: #292a2d;
+  border-radius: 30px;
+}
+
+.left-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 300px;
+  left: 0px;
+  top: 0px;
+  height: 100vh;
+  background-color: #313233;
+  transition: 0.3s all ease-in-out;
+}
+
+.left-menu-true {
+  left: 0px;
+}
+
+.left-menu-false {
+  left: -300px;
+}
+
+.left-menu i {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  padding: 5px;
+  background-color: #292a2d;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.7s all ease-in-out;
+}
+
+.left-menu-icon-true {
+  transform: rotateY(180deg);
+}
+
+.left-menu-icon-false {
+  transform: rotateY(0);
+}
+
+.left-menu-profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50px;
+}
+
+.left-menu-profile-icon {
+  width: 100px;
+  border-radius: 100px;
+  border: 5px solid white;
+  margin-bottom: 10px;
+}
+
+.left-menu-profile-blogName {
+  margin: 10px 0px;
+}
+
+.up {
+  z-index: 100;
+  position: fixed;
+  right: 30px;
+  bottom: 20px;
+  background-color: #353638;
+  padding: 5px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.chat-icon {
+  z-index: 100;
+  position: fixed;
+  right: 100px;
+  bottom: 20px;
+  background-color: #353638;
+
+  border-radius: 30px;
+  cursor: pointer;
+}
+.chat-icon i {
+  padding: 12.8px 10.3px;
+}
+
+.chat {
+  box-sizing: border-box;
+  position: fixed;
+  bottom: 80px;
+  right: 30px;
+  width: 300px;
+  height: 70%;
+  background-color: #313233;
+  border-radius: 15px;
+  transition: 0.5s all ease-in-out;
+}
+
+.chat-true {
+  visibility: visible;
+  opacity: 1;
+  bottom: 80px;
+}
+
+.chat-false {
+  visibility: hidden;
+  opacity: 0;
+  bottom: 0px;
+}

@@ -1,0 +1,8 @@
+@import "./reset.css";
+
+html {
+  font-family: Noto Sans KR, Roboto;
+  background-color: #1e1f21;
+  color: white;
+  font-weight: 700;
+}
