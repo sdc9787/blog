@@ -6,9 +6,15 @@
   align-items: center;
   height: 100vh;
   overflow: auto;
+  margin-top: 55px;
 }
 
 .nav {
+  z-index: 90;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -138,6 +144,7 @@
 }
 
 .chat {
+  z-index: 100;
   box-sizing: border-box;
   position: fixed;
   bottom: 80px;
@@ -150,14 +157,12 @@
 }
 
 .chat-true {
-  transform: rotateY(360deg);
   visibility: visible;
   opacity: 1;
   bottom: 80px;
 }
 
 .chat-false {
-  transform: rotateY(0);
   visibility: hidden;
   opacity: 0;
   bottom: 0px;
@@ -193,4 +198,13 @@
 
 .cursor-pointer {
   cursor: pointer;
+}
+
+.main-frame-routes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 50px;
 }

@@ -3,6 +3,10 @@
 html {
   font-family: Noto Sans KR, Roboto;
   background-color: #1e1f21;
-  color: white;
+  color: whitesmoke;
   font-weight: 700;
+}
+
+body {
+  overflow: hidden;
 }

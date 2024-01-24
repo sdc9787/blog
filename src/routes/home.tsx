@@ -1,13 +1,33 @@
 import "../CSS/home.css";
+import { useNavigate } from "react-router-dom";
+import BGImg from "../Component/backgroundImg";
 
-function Home() {
+interface Post {
+  post: { title: string; detail: string; time: string; category: string }[];
+}
+
+function Home(props: Post) {
+  let navigate = useNavigate(); // 페이지 이동
+
   return (
     <>
-      <div className="backGroundImg">
-        <img src="/public/profile.png" />
-        <div>
-          <span>전체 글</span>
-        </div>
+      <BGImg name="전체 글"></BGImg>
+      <div className="full-post">
+        {props.post.map((a, i) => {
+          return (
+            <div
+              onClick={() => {
+                navigate(`/Detail/${i}`);
+              }}
+              key={i}
+              className="full-post-element">
+              <span className="full-post-element-category">{a.category}</span>
+              <span className="full-post-element-title">{a.title}</span>
+              <span className="full-post-element-time">{a.time}</span>
+              <span className="full-post-element-detail">{a.detail}</span>
+            </div>
+          );
+        })}
       </div>
     </>
   );

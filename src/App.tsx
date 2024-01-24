@@ -4,17 +4,17 @@ import Detail from "./routes/Detail";
 import Home from "./routes/home";
 import Category from "./routes/Category";
 import { useState } from "react";
+import postList from "./post.json";
 
 function App() {
   let [profileState, setprofileState] = useState<boolean>(false); //leftprofile sidebar 상태
-  let profileImg: string = "/public/profile.png"; //프로필 이미지 주소
   let [chatState, setchatState] = useState<boolean>(false);
   let [category, setcategory] = useState<string[]>(["테스트 카테고리1", "테스트 카테고리2"]);
   let [newPost, setNewPost] = useState<string[]>(["테스트 게시글1", "테스트 게시글2"]);
   const blogName: string = "sdc9787"; //블로그 이름
   const profileName: string = "신대철"; //profile 이름
-
-  let navigate = useNavigate(); //페이지 이동
+  const profileImg: string = "/public/profile.png"; //프로필 이미지 주소
+  const navigate = useNavigate(); //페이지 이동
 
   return (
     <>
@@ -73,7 +73,15 @@ function App() {
           </div>
         </div>
         <div className="up">
-          <i className="xi-angle-up-min xi-2x"></i>
+          <i
+            onClick={() => {
+              window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: "smooth",
+              });
+            }}
+            className="xi-angle-up-min xi-2x"></i>
         </div>
         <div className="chat-icon">
           <i
@@ -84,12 +92,14 @@ function App() {
         </div>
         <div className={"chat chat-" + chatState}></div>
 
-        <Routes>
-          <Route path="/" element={<Home></Home>}></Route>
-          <Route path="/Category/:id" element={<Category></Category>}></Route>
-          <Route path="/Detail/:id" element={<Detail></Detail>}></Route>
-          <Route path="*" element={<div>접근할 수 없는 페이지입니다.</div>}></Route>
-        </Routes>
+        <div className="main-frame-routes">
+          <Routes>
+            <Route path="/" element={<Home post={postList.post}></Home>}></Route>
+            <Route path="/Category/:id" element={<Category></Category>}></Route>
+            <Route path="/Detail/:id" element={<Detail post_detail={postList.post}></Detail>}></Route>
+            <Route path="*" element={<div>접근할 수 없는 페이지입니다.</div>}></Route>
+          </Routes>
+        </div>
       </div>
     </>
   );
