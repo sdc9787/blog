@@ -7,12 +7,12 @@ interface Post {
 }
 
 function Detail(props: Post) {
-  let { id }: string = useParams();
-  console.log(id);
-
+  let { id } = useParams();
+  let detail_id: number = 0;
+  if (typeof id === "string") detail_id = parseInt(id);
   return (
     <>
-      <BGImg name={id}></BGImg>
+      <BGImg name={props.post_detail[detail_id].title}></BGImg>
       <div className="index-frame">
         <div className="index">
           <div className="index-title">
@@ -20,7 +20,7 @@ function Detail(props: Post) {
             <i className="xi-bars"></i>
           </div>
         </div>
-        <div className="index-detail">11</div>
+        <div className="index-detail">{props.post_detail[detail_id].detail}</div>
       </div>
     </>
   );

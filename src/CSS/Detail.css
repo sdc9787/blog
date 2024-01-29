@@ -1,18 +1,17 @@
 .index-frame {
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 .index {
-  flex-basis: 600px;
-  flex-grow: 0;
-  flex-shrink: 1;
+  width: 600px;
+
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   background-color: #292a2d;
   margin: 20px;
   padding: 20px;

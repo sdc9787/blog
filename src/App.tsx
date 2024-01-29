@@ -72,16 +72,15 @@ function App() {
             </div>
           </div>
         </div>
-        <div className="up">
-          <i
-            onClick={() => {
-              window.scrollTo({
-                top: 0,
-                left: 0,
-                behavior: "smooth",
-              });
-            }}
-            className="xi-angle-up-min xi-2x"></i>
+        <div
+          onClick={() => {
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth",
+            });
+          }}
+          className="up">
+          <i className="xi-angle-up-min xi-2x"></i>
         </div>
         <div className="chat-icon">
           <i

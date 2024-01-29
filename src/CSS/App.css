@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  height: 100vh;
+  height: auto;
   overflow: auto;
   margin-top: 55px;
 }
@@ -203,8 +203,9 @@
 .main-frame-routes {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   width: 100%;
   margin-bottom: 50px;
+  height: auto;
 }
